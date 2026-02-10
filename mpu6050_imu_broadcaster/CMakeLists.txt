@@ -6,6 +6,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
   pluginlib
   rclcpp
   rclcpp_lifecycle
+  urdf
 )
 
 find_package(ament_cmake REQUIRED)
@@ -40,6 +41,11 @@ install(
   DESTINATION share/${PROJECT_NAME}
   RUNTIME DESTINATION lib
   LIBRARY DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  DIRECTORY config launch meshes rviz urdf
+  DESTINATION share/${PROJECT_NAME}
 )
 
 # EXPORTS

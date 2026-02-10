@@ -28,6 +28,6 @@ int main() {
 	std::cout << "Z: " << az << "\n\n";
 
 	std::cout << "Include the obtained offsets in the respective macros of the mpu6050_lib.h file.\n";
-	
+
 	return 0;
 }

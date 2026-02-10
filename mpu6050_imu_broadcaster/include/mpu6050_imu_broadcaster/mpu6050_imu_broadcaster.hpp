@@ -28,7 +28,7 @@ class MPU6050Hardware : public hardware_interface::SensorInterface
   public:
     MPU6050Hardware();
 
-    CallbackReturn on_init(const hardware_interface::HardwareInfo & info) override;
+    CallbackReturn on_init(const hardware_interface::HardwareComponentInterfaceParams & params) override;
 
     std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
 
@@ -39,20 +39,20 @@ class MPU6050Hardware : public hardware_interface::SensorInterface
     return_type read(const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
   private:
-	Quaternion orientation;
-	double angular_vel_x;
-	double angular_vel_y;
-	double angular_vel_z;
-	double linear_accel_x;
-	double linear_accel_y;
-	double linear_accel_z;
-	  	
-	Quaternion quat;
-	float euler_angles[3]; 
-	float gyro_values[3];
-  	float accel_values[3];
+    Quaternion orientation;
+    double angular_vel_x;
+    double angular_vel_y;
+    double angular_vel_z;
+    double linear_accel_x;
+    double linear_accel_y;
+    double linear_accel_z;
 
-    rclcpp::Logger logger_;
+    Quaternion quat;
+    float euler_angles[3];
+    float gyro_values[3];
+    float accel_values[3];
+
+  rclcpp::Logger logger_;
 };
 
 } // namespace mpu6050_imu_broadcaster

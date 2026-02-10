@@ -18,7 +18,7 @@ float mean(float array[], int n) {
 float variance(float array[], int n) {
     float sum = 0.0f;
 
-    float array_mean = mean(array, n); 
+    float array_mean = mean(array, n);
 
     for (int i = 0; i < n; i++)
         sum += (array[i] - array_mean) * (array[i] - array_mean);
@@ -29,11 +29,11 @@ int main() {
 
     // Initialize variables and arrays
     float roll, pitch, yaw;                 // Angle values
-    float gx, gy, gz;                       // Gyro values 
-    float ax, ay, az;                       // Accel values 
+    float gx, gy, gz;                       // Gyro values
+    float ax, ay, az;                       // Accel values
     int sample_size = 500;                  // Sample data size to calculate variance on
     float orient_var[3];                    // Orientation variances
-    float ang_vel_var[3];                   // Angular velocity variances 
+    float ang_vel_var[3];                   // Angular velocity variances
     float lin_accel_var[3];                 // Linear acceleration variances
     float roll_array[sample_size];          // Array of roll values
     float pitch_array[sample_size];         // Array of pitch values
@@ -41,7 +41,7 @@ int main() {
     float ang_vel_x_array[sample_size];     // Array of angular velocity values in x-axis
     float ang_vel_y_array[sample_size];     // Array of angular velocity values in y-axis
     float ang_vel_z_array[sample_size];     // Array of angular velocity values in z-axis
-    float lin_accel_x_array[sample_size];   // Array of linear acceleration values in x-axis 
+    float lin_accel_x_array[sample_size];   // Array of linear acceleration values in x-axis
     float lin_accel_y_array[sample_size];   // Array of linear acceleration values in y-axis
     float lin_accel_z_array[sample_size];   // Array of linear acceleration values in z-axis
 
@@ -96,15 +96,15 @@ int main() {
     lin_accel_var[1] = variance(lin_accel_y_array, sample_size);
     lin_accel_var[2] = variance(lin_accel_z_array, sample_size);
 
-    // Output variance	
-    std::cout << "static_covariance_orientation: [" << orient_var[0] << ", 0.0, 0.0, "
-            << orient_var[1] << ", 0.0, 0.0, " << orient_var[2] << ", 0.0, 0.0]\n";
-    std::cout << "static_covariance_angular_velocity: [" << ang_vel_var[0] << ", 0.0, 0.0, " 
-            << ang_vel_var[1] << ", 0.0, 0.0, " << ang_vel_var[2] << ", 0.0, 0.0]\n";
-    std::cout << "static_covariance_linear_acceleration: [" << lin_accel_var[0] << ", 0.0, 0.0, " 
-            << lin_accel_var[1] << ", 0.0, 0.0, " << lin_accel_var[2] << ", 0.0, 0.0]\n\n";
+    // Output variance
+    std::cout << "static_covariance_orientation: [" << orient_var[0] << ", 0.0, 0.0, 0.0, "
+            << orient_var[1] << ", 0.0, 0.0, 0.0, " << orient_var[2] << "]\n";
+    std::cout << "static_covariance_angular_velocity: [" << ang_vel_var[0] << ", 0.0, 0.0, 0.0, "
+            << ang_vel_var[1] << ", 0.0, 0.0, 0.0, " << ang_vel_var[2] << "]\n";
+    std::cout << "static_covariance_linear_acceleration: [" << lin_accel_var[0] << ", 0.0, 0.0, 0.0, "
+            << lin_accel_var[1] << ", 0.0, 0.0, 0.0, " << lin_accel_var[2] << "]\n\n";
 
-    std::cout << "Paste covariance arrays in the imu_broadcaster ros__parameters section in lidarbot_bringup/config/controllers.yaml.\n";
+    std::cout << "Paste covariance arrays in the imu_broadcaster ros__parameters section in mpu6050_imu_broadcaster/config/controllers.yaml.\n";
 
     return 0;
 }
