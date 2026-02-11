@@ -8,17 +8,14 @@
     <link name="imu_link">
       <visual name="imu_visual">
         <geometry>
-          <!-- <mesh filename="package://mpu6050_demo_description/meshes/MPU6050.dae"/> -->
+          <!-- <mesh filename="package://mpu6050_imu_broadcaster/meshes/MPU6050.dae"/> -->
           <mesh filename="file://$(find mpu6050_imu_broadcaster)/meshes/MPU6050.dae"/>
           <!-- scale="100 100 100"/> -->
         </geometry>
       </visual>
     </link>
 
-    <!-- Sort out mesh not displaying in rviz -->
-
     <joint name="imu_joint" type="fixed">
-        <!-- <parent link="base_link"/> -->
         <parent link="world"/>
         <child link="imu_link"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>

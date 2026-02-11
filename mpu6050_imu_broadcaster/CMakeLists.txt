@@ -68,4 +68,21 @@ install(TARGETS
 target_link_libraries(mpu6050_offsets i2c)
 target_link_libraries(mpu6050_covariances i2c)
 
+# if(BUILD_TESTING)
+#
+#   find_package(ament_cmake_gmock REQUIRED)
+#   find_package(hardware_interface REQUIRED)
+#   # find_package(ros2_control_test_assets REQUIRED)
+#
+#   ament_add_gmock(test_imu_sensor test)
+#
+#   add_library(test_imu_sensor SHARED
+#   test/test_imu_sensor/test_imu_sensor.cpp
+#
+#   target_link_libraries(test_imu_sensor mpu6050_imu_broadcaster)
+#   install(TARGETS test
+#     DESTINATION lib)
+# )
+# endif()
+#
 ament_package()
