@@ -17,6 +17,7 @@ TODO:
 - List package and file structure
 - Steps on how to use the package
 - Include demo
+- Filter data
 - Reference Alex Nous' library (RPi4)
 
 Note:

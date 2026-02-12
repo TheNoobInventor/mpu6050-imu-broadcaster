@@ -5,15 +5,7 @@
     <link name="world"/>
 
     <!-- Imu link  -->
-    <link name="imu_link">
-      <visual name="imu_visual">
-        <geometry>
-          <!-- <mesh filename="package://mpu6050_imu_broadcaster/meshes/MPU6050.dae"/> -->
-          <mesh filename="file://$(find mpu6050_imu_broadcaster)/meshes/MPU6050.dae"/>
-          <!-- scale="100 100 100"/> -->
-        </geometry>
-      </visual>
-    </link>
+    <link name="imu_link"/>
 
     <joint name="imu_joint" type="fixed">
         <parent link="world"/>
@@ -21,6 +13,24 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
-    <xacro:include filename="mpu6050_ros2_control.xacro"/>
+    <ros2_control name='MPU6050' type='sensor'>
+        <hardware>
+            <plugin>mpu6050_imu_broadcaster/MPU6050Hardware</plugin>
+            <param name='sensor_name'>mpu6050</param>
+            <param name='frame_id'>imu_link</param>
+        </hardware>
+        <sensor name='mpu6050'>
+            <state_interface name='orientation.x'/>
+            <state_interface name='orientation.y'/>
+            <state_interface name='orientation.z'/>
+            <state_interface name='orientation.w'/>
+            <state_interface name='angular_velocity.x'/>
+            <state_interface name='angular_velocity.y'/>
+            <state_interface name='angular_velocity.z'/>
+            <state_interface name='linear_acceleration.x'/>
+            <state_interface name='linear_acceleration.y'/>
+            <state_interface name='linear_acceleration.z'/>
+        </sensor>
+    </ros2_control>
 
 </robot>
