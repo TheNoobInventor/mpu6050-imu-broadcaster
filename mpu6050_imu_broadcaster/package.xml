@@ -18,6 +18,7 @@
 
   <depend>urdf</depend>
   <depend>xacro</depend>
+  <depend>imu_tools</depend>
   <depend>hardware_interface</depend>
   <depend>pluginlib</depend>
   <depend>rclcpp</depend>
