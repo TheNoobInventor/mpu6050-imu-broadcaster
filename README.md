@@ -37,7 +37,7 @@ ros2 launch mpu6050_imu_broadcaster view_rviz_launch.py
 A demo of this is shown in the GIF below.
 
 <p align='center'>
-    <img src=images/rviz_demo.gif width='600'>
+    <img src=mpu6050_imu_broadcaster/images/rviz_demo.gif width='600'>
 </p>
 
 ## robot_localization
